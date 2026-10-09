@@ -4,6 +4,14 @@ using namespace std;
 
 class SortAnalyzer {
 public:
+    void bubbleSort (int arr[], int n, long long& counter);
+    void selectionSort(int arr[], int n, long long& counter);
+    void insertionSort(int arr[], int n, long long& counter);
+};
+
+
+class SortAnalyzer {
+public:
     void bubbleSort(int arr[], int n, long long& counter) {
         for (int i = 0; i < n-1; i++) {
             for (int j = 0; j < n-1-i; j++) {
@@ -50,3 +58,40 @@ public:
     }
 };
 
+
+
+void copyArr(int src[], int dst[], int n) { for(int i=0;i<n;i++)
+dst[i]=src[i]; }
+
+void printArr(int a[], int n) { for(int i=0;i<n;i++) cout<<a[i]<<(i<n-1?" ":"\n"); }
+
+int main() {
+    SortAnalyzer sa;
+    long long c;
+    int tmp[10];
+    
+    int rand10[] = {64,34,25,12,22,11,90,45,7,80};
+    int n=10;
+    c=0; copyArr(rand10,tmp,n); sa.bubbleSort(tmp,n,c);
+    cout<<"TC1 bubble sorted: "; printArr(tmp,n);
+    cout<<"TC1 comparisons: "<<c<<endl;
+    c=0; copyArr(rand10,tmp,n); sa.selectionSort(tmp,n,c);
+    cout<<"TC2 selection sorted: "; printArr(tmp,n);
+    cout<<"TC2 comparisons: "<<c<<endl;
+    c=0; copyArr(rand10,tmp,n); sa.insertionSort(tmp,n,c);
+    cout<<"TC3 insertion sorted: "; printArr(tmp,n);
+    cout<<"TC3 comparisons: "<<c<<endl;
+    
+    int sorted10[] = {1,2,3,4,5,6,7,8,9,10};
+    c=0; copyArr(sorted10,tmp,n); sa.bubbleSort(tmp,n,c);
+    cout<<"TC4 bubble on sorted, comparisons: "<<c<<endl;
+    c=0; copyArr(sorted10,tmp,n); sa.insertionSort(tmp,n,c);
+    cout<<"TC5 insertion on sorted, comparisons: "<<c<<endl;
+    
+    int rev10[] = {10,9,8,7,6,5,4,3,2,1};
+    c=0; copyArr(rev10,tmp,n); sa.bubbleSort(tmp,n,c);
+    cout<<"TC6 bubble on reverse, comparisons: "<<c<<endl;
+    c=0; copyArr(rev10,tmp,n); sa.insertionSort(tmp,n,c);
+    cout<<"TC7 insertion on reverse, comparisons: "<<c<<endl;
+    return 0;
+}
