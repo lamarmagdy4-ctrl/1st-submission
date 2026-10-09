@@ -3,13 +3,6 @@
 #include <utility>
 using namespace std;
 
-class SortAnalyzer {
-public:
-    void bubbleSort (int arr[], int n, long long& counter);
-    void selectionSort(int arr[], int n, long long& counter);
-    void insertionSort(int arr[], int n, long long& counter);
-};
-
 
 class SortAnalyzer {
 public:
